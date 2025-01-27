@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Список Курсів{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'courses/css/list_style.css' %}">
+{% endblock %}
+{% block search_form %}
+    <form class="d-flex search_form" role="search">
+        {{ search_form }}
+        {% csrf_token %}
+        <button class="btn btn-outline-success submit-btn" type="submit">Пошук</button>
+    </form>
+{% endblock %}
+{% block content %}
+    <main class="container-fluid">
+        <div class="row content">
+            <aside class="categories left-navbar col-3">
+                <h2 class="text-center mb-5">Вибір за категоріями:</h2>
+                <ol>
+                    {% for category in categories %}
+                        <li>
+                            <a href="{% url 'courses:course_list_by_category' category.id %}">
+                                {{ category|truncatewords:3 }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </aside>
+            <div class="course_list col-9">
+                <h1 class="title text-center my-3">Список курсів</h1>
+                <div class="row cards">
+                    {% for course in courses %}
+                        <article class="col card-col">
+                            <div class="card h-100" style="width: 20rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="{{ course.get_absolute_url }}">{{ course }}</a></h5>
+                                    <p class="card-text">{{ course.description|truncatewords:35 }}</p>
+                                    <p class="card-text">Кількість лекцій: {{ course.number_of_lecture }}</p>
+                                </div>
+                                <div class="card-footer mt-3">
+                                    <small class="text-body-secondary">Дата початку: {{ course.start_date }}</small>
+                                    <small class="text-body-secondary">Дата закінчення: {{ course.finish_date }}</small>
+                                    <small class="text-body-secondary">Категорія: {{ course.category }}</small>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+                {% include 'courses/pagination.html' with page=courses %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

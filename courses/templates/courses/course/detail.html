@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}{{ course }}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'courses/css/detail_style.css' %}">
+{% endblock %}
+{% block content %}
+    <main class="container-fluid content">
+        <h3><a href="{% url 'courses:course_list' %}">Назад</a></h3>
+        <article class="container my-3 course-content">
+            <div class="card-check">
+                <div class="card" style="width: 75%;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course }}</h5>
+                        <p class="card-text">{{ course.description }}</p>
+                        <p class="card-text">Кількість лекцій: {{ course.number_of_lecture }}</p>
+                    </div>
+                    <div class="card-footer mt-3">
+                        <small class="text-body-secondary">Дата початку: {{ course.start_date }}</small>
+                        <small class="text-body-secondary">Дата закінчення: {{ course.finish_date }}</small>
+                        <small class="text-body-secondary">Категорія: {{ course.category }}</small>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+{% endblock %}

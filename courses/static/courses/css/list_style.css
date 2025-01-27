@@ -1,0 +1,72 @@
+a {
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.categories {
+    flex: 1;
+    padding-bottom: 100%;
+    padding-right: 50px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.course_list {
+    flex: 5;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.paginator {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+}
+
+.card-col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-footer {
+    padding: 10px;
+    background-color: #f8f9fa;
+    font-size: 0.875rem;
+    color: #6c757d;
+    display: flex;
+    flex-direction: column;
+}
+
+.search_form label {
+    display: none;
+}
+
+.submit-btn {
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .categories {
+        flex: 1 0 100%;
+        padding: 15px;
+    }
+
+    .course_list {
+        flex: 1 0 100%;
+        padding: 15px;
+    }
+}
