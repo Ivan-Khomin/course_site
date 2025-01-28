@@ -20,7 +20,7 @@ a {
 }
 
 .greeting {
-    flex: 3;
+    flex: 5;
     padding: 20px;
     background-color: #ffffff;
 }
