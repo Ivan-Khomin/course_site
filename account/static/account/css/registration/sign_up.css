@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 85vh;
+}
+
+.sign_up-form {
+    width: 500px;
+}
+
+.sign_up-header {
+    margin-bottom: 20px;
+}

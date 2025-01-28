@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'account/css/dashboard/index.css' %}">
+{% endblock %}
+{% block content %}
+    <main class="container-fluid">
+        <div class="row content">
+            <aside class="functions-list left-navbar col-3">
+                <h2 class="text-center mb-5">Функції аккаунту:</h2>
+                <ol>
+                    <li>
+                        <a href="{% url 'account:edit_profile' %}">Редагувати профіль</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:logout' %}">Вийти</a>
+                    </li>
+                </ol>
+            </aside>
+            {% block inner_content %}
+                <div class="greeting col-9">
+                    <h1 class="title text-center my-3">Вітаю, {{ request.user.username }}!</h1>
+                </div>
+            {% endblock %}
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Реєстрація{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'account/css/registration/sign_up.css' %}">
+{% endblock %}
+{% block content %}
+    <main class="container-fluid content">
+        <h1 class="sign_up-header">Реєстрація</h1>
+        <form method="post" class="sign_up-form">
+            <div class="mb-3">
+                <label for="usernameInput" class="form-label">Ім'я користувача</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                <label for="firstNameInput" class="form-label">Ім'я</label>
+                {{ form.first_name }}
+            </div>
+            <div class="mb-3">
+                <label for="lastNameInput" class="form-label">Прізвище</label>
+                {{ form.last_name }}
+            </div>
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email адреса</label>
+                {{ form.email }}
+            </div>
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Пароль</label>
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-success">Створити аккаунт</button>
+            <a class="btn btn-primary" href="{% url 'account:login' %}">Увійти</a>
+            {% csrf_token %}
+        </form>
+    </main>
+{% endblock %}

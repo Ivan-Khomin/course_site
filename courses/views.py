@@ -6,6 +6,8 @@ from .forms import SearchForm
 
 
 def course_list(request, category_id=None):
+    search_form = SearchForm()
+
     if category_id:
         object_list = Course.objects.filter(status='open', category__id=category_id)
     else:
@@ -16,13 +18,13 @@ def course_list(request, category_id=None):
         if search_form.is_valid():
             query = search_form.cleaned_data['query']
             try:
-                object_list = Course.objects.filter(status='open', title__contains=query)
-            except Exception as e:
-                print(e)
+                if category_id:
+                    object_list = Course.objects.filter(status='open', category__id=category_id, title__contains=query)
+                else:
+                    object_list = Course.objects.filter(status='open', title__contains=query)
+            except Exception:
                 object_list = None
-    else:
-        search_form = SearchForm()
-        object_list = Course.objects.filter(status='open')
+
     categories = Category.objects.all()
     paginator = Paginator(object_list, 6)
     page = request.GET.get('page')

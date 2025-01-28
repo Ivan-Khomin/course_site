@@ -1,0 +1,27 @@
+{% extends 'account/base_account.html' %}
+{% block title %}Редагувати профіль{% endblock %}
+{% block inner_content %}
+    <div class="edit-form-container">
+        <h1 class="edit-form-header">Редагування профілю</h1>
+        <form method="post" class="edit-form">
+            <div class="mb-3">
+                <label for="usernameInput" class="form-label">Ім'я користувача</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                <label for="firstNameInput" class="form-label">Ім'я</label>
+                {{ form.first_name }}
+            </div>
+            <div class="mb-3">
+                <label for="lastNameInput" class="form-label">Прізвище</label>
+                {{ form.last_name }}
+            </div>
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email адреса</label>
+                {{ form.email }}
+            </div>
+            <button type="submit" class="btn btn-success">Зберегти зміни</button>
+            {% csrf_token %}
+        </form>
+    </div>
+{% endblock %}

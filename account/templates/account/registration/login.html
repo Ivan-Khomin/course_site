@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Авторизація{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'account/css/registration/login.css' %}">
+{% endblock %}
+{% block content %}
+    <main class="container-fluid content">
+        <h1 class="login-header">Авторизація</h1>
+        <form method="post" class="login-form">
+            <div class="mb-3">
+                <label for="usernameInput" class="form-label">Ім'я користувача</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Пароль</label>
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-success">Увійти</button>
+            <a class="btn btn-primary" href="{% url 'account:sign_up' %}">Створити аккаунт</a>
+            {% csrf_token %}
+        </form>
+    </main>
+{% endblock %}

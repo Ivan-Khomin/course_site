@@ -22,7 +22,7 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'courses:course_list' %}">Курси</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Аккаунт</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'account:dashboard' %}">Аккаунт</a>
                     </li>
                 </ul>
                 {% block search_form %}{% endblock %}

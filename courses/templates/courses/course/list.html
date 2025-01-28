@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Список Курсів{% endblock %}
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'courses/css/list_style.css' %}">
+    <link rel="stylesheet" href="{% static 'courses/css/list.css' %}">
 {% endblock %}
 {% block search_form %}
     <form class="d-flex search_form" role="search">
@@ -29,22 +29,26 @@
             <div class="course_list col-9">
                 <h1 class="title text-center my-3">Список курсів</h1>
                 <div class="row cards">
-                    {% for course in courses %}
-                        <article class="col card-col">
-                            <div class="card h-100" style="width: 20rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="{{ course.get_absolute_url }}">{{ course }}</a></h5>
-                                    <p class="card-text">{{ course.description|truncatewords:35 }}</p>
-                                    <p class="card-text">Кількість лекцій: {{ course.number_of_lecture }}</p>
+                    {% if courses|length == 0 %}
+                        <h1>Курсів не знайдено</h1>
+                    {% else %}
+                        {% for course in courses %}
+                            <article class="col card-col">
+                                <div class="card h-100" style="width: 20rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="{{ course.get_absolute_url }}">{{ course }}</a></h5>
+                                        <p class="card-text">{{ course.description|truncatewords:35 }}</p>
+                                        <p class="card-text">Кількість лекцій: {{ course.number_of_lecture }}</p>
+                                    </div>
+                                    <div class="card-footer mt-3">
+                                        <small class="text-body-secondary">Дата початку: {{ course.start_date }}</small>
+                                        <small class="text-body-secondary">Дата закінчення: {{ course.finish_date }}</small>
+                                        <small class="text-body-secondary">Категорія: {{ course.category }}</small>
+                                    </div>
                                 </div>
-                                <div class="card-footer mt-3">
-                                    <small class="text-body-secondary">Дата початку: {{ course.start_date }}</small>
-                                    <small class="text-body-secondary">Дата закінчення: {{ course.finish_date }}</small>
-                                    <small class="text-body-secondary">Категорія: {{ course.category }}</small>
-                                </div>
-                            </div>
-                        </article>
-                    {% endfor %}
+                            </article>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 {% include 'courses/pagination.html' with page=courses %}
             </div>
