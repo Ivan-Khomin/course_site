@@ -10,12 +10,11 @@ a {
 
 .functions-list {
     flex: 1;
-    padding-bottom: 100%;
     padding-right: 50px;
     background-color: #f8f9fa;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
 }
 
