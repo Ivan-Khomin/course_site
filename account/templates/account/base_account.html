@@ -8,14 +8,14 @@
         <div class="row content">
             <aside class="functions-list left-navbar col-3">
                 <h2 class="text-center mb-5">Функції аккаунту:</h2>
-                <ol>
+                <ul>
                     <li>
                         <a href="{% url 'account:edit_profile' %}">Редагувати профіль</a>
                     </li>
                     <li>
                         <a href="{% url 'account:logout' %}">Вийти</a>
                     </li>
-                </ol>
+                </ul>
             </aside>
             {% block inner_content %}
                 <div class="greeting col-9">

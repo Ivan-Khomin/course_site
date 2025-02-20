@@ -16,7 +16,7 @@
         <div class="row content">
             <aside class="categories left-navbar col-3">
                 <h2 class="text-center mb-5">Вибір за категоріями:</h2>
-                <ol>
+                <ul>
                     {% for category in categories %}
                         <li>
                             <a href="{% url 'courses:course_list_by_category' category.id %}">
@@ -24,7 +24,7 @@
                             </a>
                         </li>
                     {% endfor %}
-                </ol>
+                </ul>
             </aside>
             <div class="course_list col-9">
                 <h1 class="title text-center my-3">Список курсів</h1>
