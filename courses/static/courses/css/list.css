@@ -59,6 +59,18 @@ a {
     margin-left: 10px;
 }
 
+.category-name {
+    font-size: 18px;
+}
+
+.date-info {
+    font-size: 16px;
+}
+
+.number-of-lecture {
+    font-size: 19px;
+}
+
 @media (max-width: 768px) {
     .categories {
         flex: 1 0 100%;
