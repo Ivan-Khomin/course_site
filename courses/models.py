@@ -45,8 +45,4 @@ class Course(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('courses:course_detail', args=[
-            self.slug,
-            self.id
-        ])
-
+        return reverse('courses:course_detail', args=[self.id])
